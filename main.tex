@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsthm}
+\usepackage{amssymb}
+
+
+\title{MATH 377: Proof Portfolio}
+\author{By Katie Jolly}
+\date{Fall 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{A High Point}
+
+Even though this proof was on one of the first homework assignments for the class, I still remember the process of working through it very clearly. It's not the most technically difficult or complex, but it was an important turning point for my proof writing. At first I felt very lost when thinking about how to go about writing it. As I worked through the proof, though, it was one of the first time I felt like I had a good grasp on the material in the class. \\
+
+In this proof, we start by defining two sets, A and B and arbitrary elements of those sets. We can then show that the supremum of the two sets added together is the sum of their suprema. The general logic for this is to find arbitrary upper bounds with inequalities. I liked this proof a lot because it is a simple idea when written down but it takes many lines to actually show. I think this was one of the first times I saw the value in that.\\ 
+
+\begin{definition}
+Definition: Given sets $A$ and $B$, define $A + B= \{a + b: a \in A, b \in B\}$.\\
+
+\noindent Claim: If $A$ and $B$ are nonempty and bounded above then \textit{sup}($A + B$) = \textit{sup A + sup B}.
+\end{definition}
+
+\begin{proof}
+
+Let $s$ = \textit{sup A} and $t$ = \textit{sup B}. \\
+
+It can be shown that $s + t$ is an upper bound for $A + B$. \\
+
+We know by the definition of a supremum that $s \leq a \: \forall \:a \in A $. Similarly, $t \leq b \: \forall \:b \in B $. This implies that $s + t \geq a + b \: \forall \: a \in A, b \in B$. \\
+
+Let $u$ be an arbitrary upper bound for $A + B$. Fix $a \in A$. It can be shown that $t \leq u - a$, meaning that the supremum of B is less than or equal to the difference between any arbitrary upper bound for $A + B$ and any fixed element of $A$. We can manipulate the expression to be $u \geq a + b \:\: \forall \: a \in A, b \in B$. When we fix $\overline{a} \in A$, we can say $u \geq \overline{a} + b \:\: \forall \: b \in B$. Similarly, $u - \overline{a} \geq b \:\: \forall \: b \in B$. Essentially, this says that the difference between an arbitrary upper bound for $A + B$ and a fixed element of A is greater than or equal to an arbitrary element of B. This makes $u - \overline{a}$ an upper bound for b. It is already given that \textit{sup B = t} which implies that $t \leq u - \overline{a}$. \\
+
+Since $\overline{a}$ can be any fixed point of A, that implies that $t \leq u - a \:\: \forall \: a \in A$. We can write $a + t \leq u$ and subsequently, $a \leq u - t$. This implies by similar logic that $u -t$ is an upper bound for a, and we already know \textit{sup A} = s. \\
+
+This in turn implies that $s \leq u - t$ and $s + t \leq u$. \\
+
+Because we already know $s + t$ is an upper bound for $A + B$ and u is an arbitrary upper bound for $A + B$, then \textit{sup A + B = s + t}. 
+
+\end{proof}
+
+\section{A Touchstone: Mean Value Theorem}
+
+I particularly liked this proof because it elegantly combined many different ideas from the class into one succinct statement. It uses Rolle's theorem, which uses the extreme value theorem, which in turn uses compactness and closed sets. It's an elegant proof because it uses many simple ideas and puts them together to create a much more powerful statement about functions.\\
+
+The Mean Value Theorem is important in analysis and mathematics more broadly because it allows us to relate the size of $f'$ to $f$, which allows us to easily prove statements like: if $f(0) = 0$ and $|f'(x)| \leq M$. It will also be an important part of the proof of the Fundamental Theorem of Calculus. Stated in other terms, the theorem tells us that there is a point at which the average rate of change over an interval is equal to the instantaneous rate of change at at least one point in the interval. \\
+
+
+\begin{definition}
+Claim: If $f: [a,b] \rightarrow \mathbb{R}$ is differentiable then there exists $x \in [a,b]$ such that $f'(x) = \frac{f(b) - f(a)}{b - a}$. 
+\end{definition}
+
+\begin{proof}
+The intuition behind this proof is to transform the function so that we can apply Rolle's theorem. Essentially, we want a transformation that gives $f(a) = f(b)$. \\
+
+Given $f(x)$, let $m = \frac{f(b) - f(a)}{b - a}$. In this case m is the slope of the secant line between the two endpoints of the interval $[a,b]$. \\
+
+We can construct a vertical shearing of the original function $f$ as $g(x) = f(x) - (m(x-a) + f(a))$. Then, $g(a) = f(a) = g(b)$. \\
+
+We now have a function that satisfies the criteria for Rolle's theorem. Therefore, there exists $x \in [a,b]$ where $g'(x) = 0$. By construction, $g'(x) = f'(x) - M = 0 \implies f'(x) = M$. \\
+
+Therefore, there exists a point in the interval $[a,b]$ where the derivative is equal to the secant slope between a and b, which is the claim of the Mean Value Theorem. 
+\end{proof}
+
+\end{document}
